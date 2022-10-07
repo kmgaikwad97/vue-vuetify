@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Todo from "../views/Todo.vue";
 import About from "../views/About.vue";
 import Photos from "../views/Photos.vue";
+import Axios from "../views/Axios.vue";
 
 Vue.use(VueRouter);
 
@@ -21,6 +22,11 @@ const routes = [
     path: "/photos",
     name: "Photos",
     component: Photos,
+  },
+  {
+    path: "/axios",
+    name: "Axios",
+    component: Axios,
   },
 ];
 
