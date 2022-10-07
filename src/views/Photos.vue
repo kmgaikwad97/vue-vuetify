@@ -1,19 +1,17 @@
 <template>
 <div class="photos pa-6">
     <h1>This is Photos Page</h1>
-    <!-- <div class="imgs" v-for="images in img" :key="images.id">
-        <v-container class="grey lighten-5">
-            <v-row >
-                <template v-for="n in 12" >
-                    <v-col :key="n" cols="4">
-                        <v-img :lazy-src="images.lazySrc" max-height="150" max-width="250" :src="images.imgSrc"></v-img>
-                    </v-col>
-                    <v-responsive v-if="n === 2" :key="`width-${n}`" width="100%"></v-responsive>
+    <v-row>
+        <v-col v-for="n in 9" :key="n" class="d-flex child-flex" cols="4">
+            <v-img :src="`https://picsum.photos/500/300?image=${n * 5 + 10}`" :lazy-src="`https://picsum.photos/10/6?image=${n * 5 + 10}`" aspect-ratio="1" class="grey lighten-2">
+                <template v-slot:placeholder>
+                    <v-row class="fill-height ma-0" align="center" justify="center">
+                        <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
+                    </v-row>
                 </template>
-            </v-row>
-        </v-container>
-        
-    </div> -->
+            </v-img>
+        </v-col>
+    </v-row>
 </div>
 </template>
 
@@ -21,6 +19,7 @@
 export default {
     data() {
         return {
+            alignments: ["start", "center", "end"],
             img: [{
                     id: 1,
                     imgSrc: "https://picsum.photos/id/11/500/300",
@@ -71,9 +70,9 @@ export default {
                     imgSrc: "https://picsum.photos/id/11/500/300",
                     lazySrc: "https://picsum.photos/id/11/10/6",
                 },
-            ]
-        }
-    }
+            ],
+        };
+    },
 };
 </script>
 
